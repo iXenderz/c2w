@@ -1,8 +1,8 @@
 <script setup>
-import { inject } from "@vercel/analytics";
-inject();
+import { Analytics } from "@vercel/analytics/vue";
 </script>
 <template>
+  <Analytics />
   <RouterView />
   <div class="ff-normal fixed bottom-6 right-6 z-50">
     <div class="group relative">
