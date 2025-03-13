@@ -1,13 +1,22 @@
 <template>
   <header class="font-sans tracking-wide absolute w-full z-50">
     <div class="flex flex-wrap p-10 relative">
+      <!-- Mobile menu container: hidden by default on mobile, visible on desktop -->
       <div
         id="collapseMenu"
-        class="bg-white shadow-lg rounded-lg max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50"
+        :class="{
+          hidden: !isMobileMenuOpen,
+          block: isMobileMenuOpen,
+          'bg-white shadow-lg rounded-lg lg:!block': true,
+          // Fullscreen sidebar styles when menu is open
+          'fixed top-0 left-0 w-full h-full overflow-auto z-50 before:fixed before:inset-0 before:z-40 before:pointer-events-none':
+            isMobileMenuOpen,
+        }"
       >
         <button
           id="toggleClose"
           class="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3"
+          @click="toggleMenu(false)"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,14 +34,12 @@
 
         <RouterLink
           :to="{ name: 'home' }"
-          class="leading-10 hover:text-[#007bff] text-red-600 block text-lg m-3 absolute shadow-lg"
+          class="leading-10 hidden lg:block hover:text-[#007bff] text-red-600 block text-lg m-3 absolute"
         >
           <img src="/c2w-logo.png" class="mx-auto object-contain" width="90" />
         </RouterLink>
 
-        <ul
-          class="px-4 py-0 ml-24 ff-normal lg:flex gap-x-4 max-lg:fixed max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:h-full max-lg:overflow-auto z-50"
-        >
+        <ul class="lg:px-4 lg:py-0 lg:ml-24 ff-normal lg:flex gap-x-4">
           <li class="max-lg:border-b max-lg:px-3 max-lg:py-3">
             <RouterLink
               :to="{ name: 'home' }"
@@ -68,22 +75,32 @@
         </ul>
       </div>
 
+      <!-- Toggle button for mobile menu with new button style burger icon -->
       <div id="toggleOpen" class="flex ml-auto lg:hidden">
-        <button>
-          <svg
-            class="w-7 h-7"
-            fill="#000"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clip-rule="evenodd"
-            />
-          </svg>
+        <button
+          @click="toggleMenu(true)"
+          class="flex flex-col justify-between w-8 h-8 focus:outline-none bg-red-800 p-2 rounded-md"
+        >
+          <span class="block w-full h-0.5 bg-white"></span>
+          <span class="block w-full h-0.5 bg-white"></span>
+          <span class="block w-full h-0.5 bg-white"></span>
         </button>
       </div>
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isMobileMenuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu(open) {
+      this.isMobileMenuOpen = open;
+    },
+  },
+};
+</script>
