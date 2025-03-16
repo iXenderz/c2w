@@ -35,6 +35,24 @@
           ><span class="sr-only">...</span></label
         >
         <article class="bg-white rounded-lg shadow-2xl">
+          <Button
+            aria-label="Open dialog"
+            class="ff-normal absolute m-4 end-0 top-0 border-none"
+            style="background-color: #0000008a"
+            @click="openDialog('/C2W SEMINARY.jpg')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="currentColor"
+            >
+              <path
+                d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34 6.5 6.5 0 0 0-6.5-6.5 6.5 6.5 0 0 0-6.5 6.5 6.5 6.5 0 0 0 6.5 6.5 6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25a1 1 0 0 0 1.41-1.41L15.5 14zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"
+              />
+            </svg>
+          </Button>
           <img src="/C2W SEMINARY.jpg" style="height: 95vh" alt="" />
         </article>
       </div>
@@ -46,6 +64,24 @@
           ><span class="sr-only">...</span></label
         >
         <article class="bg-white rounded-lg shadow-2xl">
+          <Button
+            aria-label="Open dialog"
+            class="ff-normal absolute m-4 end-0 top-0 border-none"
+            style="background-color: #0000008a"
+            @click="openDialog('/C2W SEMINARY Church.jpg')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="currentColor"
+            >
+              <path
+                d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34 6.5 6.5 0 0 0-6.5-6.5 6.5 6.5 0 0 0-6.5 6.5 6.5 6.5 0 0 0 6.5 6.5 6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25a1 1 0 0 0 1.41-1.41L15.5 14zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"
+              />
+            </svg>
+          </Button>
           <img src="/C2W SEMINARY Church.jpg" style="height: 95vh" alt="" />
         </article>
       </div>
@@ -57,10 +93,61 @@
           ><span class="sr-only">...</span></label
         >
         <article class="bg-white rounded-lg shadow-2xl">
+          <Button
+            aria-label="Open dialog"
+            class="ff-normal absolute m-4 end-0 top-0 border-none"
+            style="background-color: #0000008a"
+            @click="openDialog('/C2W SEMINARY Believer.jpg')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="currentColor"
+            >
+              <path
+                d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34 6.5 6.5 0 0 0-6.5-6.5 6.5 6.5 0 0 0-6.5 6.5 6.5 6.5 0 0 0 6.5 6.5 6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25a1 1 0 0 0 1.41-1.41L15.5 14zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"
+              />
+            </svg>
+          </Button>
           <img src="/C2W SEMINARY Believer.jpg" alt="" style="height: 95vh" />
         </article>
       </div>
     </div>
   </section>
+  <dialog ref="imageDialog" @click="handleDialogClick">
+    <img :src="dialogImage" alt="Zoomed Image" style="height: 180%" />
+  </dialog>
 </template>
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      dialogImage: "/C2W SEMINARY.jpg",
+    };
+  },
+  methods: {
+    openDialog(imageSrc) {
+      // Update the dialog image based on the clicked article.
+      this.dialogImage = imageSrc;
+      // Use $refs for better Vue integration.
+      this.$refs.imageDialog.showModal();
+    },
+    closeDialog() {
+      this.$refs.imageDialog.close();
+    },
+    handleDialogClick(event) {
+      if (event.target === this.$refs.imageDialog) {
+        this.closeDialog();
+      }
+    },
+  },
+};
+</script>
+<style scoped>
+/* Optional: Style the dialog element */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+</style>
