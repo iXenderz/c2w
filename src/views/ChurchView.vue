@@ -25,7 +25,7 @@
         </div>
         <div class="w-full ff-normal">
           <RouterLink
-            :to="{ name: 'blank' }"
+            :to="{ name: 'seminary', query: { id: 'church' } }"
             class="font-bold text-4xl underline"
             >Making Disciples</RouterLink
           >

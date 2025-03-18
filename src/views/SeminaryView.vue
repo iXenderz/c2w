@@ -36,9 +36,9 @@
         >
         <article class="bg-white rounded-lg shadow-2xl">
           <Button
+            id="seminary-btn"
             aria-label="Open dialog"
-            class="ff-normal absolute m-4 end-0 top-0 border-none"
-            style="background-color: #0000008a"
+            class="ff-normal absolute m-4 end-0 top-0 border-none bg-red-700"
             @click="openDialog('/C2W SEMINARY.jpg')"
           >
             <svg
@@ -65,9 +65,9 @@
         >
         <article class="bg-white rounded-lg shadow-2xl">
           <Button
+            id="church-btn"
             aria-label="Open dialog"
-            class="ff-normal absolute m-4 end-0 top-0 border-none"
-            style="background-color: #0000008a"
+            class="ff-normal absolute m-4 end-0 top-0 border-none bg-red-700"
             @click="openDialog('/C2W SEMINARY Church.jpg')"
           >
             <svg
@@ -94,9 +94,9 @@
         >
         <article class="bg-white rounded-lg shadow-2xl">
           <Button
+            id="believer-btn"
             aria-label="Open dialog"
-            class="ff-normal absolute m-4 end-0 top-0 border-none"
-            style="background-color: #0000008a"
+            class="ff-normal absolute m-4 end-0 top-0 border-none bg-red-700"
             @click="openDialog('/C2W SEMINARY Believer.jpg')"
           >
             <svg
@@ -126,6 +126,18 @@ export default {
     return {
       dialogImage: "/C2W SEMINARY.jpg",
     };
+  },
+  mounted() {
+    const id = this.$route.query.id;
+
+    if (id) {
+      const button = document.getElementById(`${id}-btn`);
+      if (button) {
+        button.click();
+      } else {
+        console.warn(`Not found`);
+      }
+    }
   },
   methods: {
     openDialog(imageSrc) {
