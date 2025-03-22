@@ -66,7 +66,7 @@
           </li>
           <li class="max-lg:border-b max-lg:px-3 max-lg:py-3">
             <RouterLink
-              :to="{ name: 'seminary' }"
+              :to="{ name: 'seminary', query: { id: 'church' } }"
               class="leading-10 hover:text-[#007bff] text-red-600 block text-2xl"
             >
               SEMINARY
