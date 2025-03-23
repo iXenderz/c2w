@@ -44,6 +44,18 @@ const router = createRouter({
       component: () => import("../views/BlankView.vue"),
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      const element = document.querySelector(to.hash);
+      if (element) {
+        return {
+          el: to.hash,
+          behavior: "smooth", // Smooth scrolling
+        };
+      }
+    }
+    return savedPosition || { top: 0 }; // Default scroll to top
+  },
 });
 
 export default router;

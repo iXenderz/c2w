@@ -15,7 +15,7 @@
     <div
       class="flex flex-col items-center gap-16 container mx-auto py-16 max-w-4xl"
     >
-      <div class="flex items-start gap-8">
+      <div class="flex items-start gap-8 w-full">
         <div class="w-1/2">
           <img
             src="/FRUITS3-Make.jpg"
@@ -23,7 +23,7 @@
             class="rounded-lg shadow-lg w-full object-cover"
           />
         </div>
-        <div class="w-full ff-normal">
+        <div id="making-disciples" class="w-full ff-normal">
           <RouterLink
             :to="{ name: 'seminary', query: { id: 'church' } }"
             class="font-bold text-4xl underline"
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="flex items-start gap-8">
+      <div class="flex items-start gap-8 w-full">
         <div class="w-1/2">
           <img
             src="/FRUITS3-Share.jpg"
@@ -47,7 +47,7 @@
             class="rounded-lg shadow-lg w-full object-cover"
           />
         </div>
-        <div class="w-full ff-normal">
+        <div id="share-with-the-needy" class="w-full ff-normal">
           <RouterLink
             :to="{ name: 'blank' }"
             class="font-bold text-4xl underline"
@@ -74,7 +74,7 @@
             class="rounded-lg shadow-lg w-full object-cover"
           />
         </div>
-        <div class="w-full ff-normal">
+        <div id="send-workers-to-harvest" class="w-full ff-normal">
           <RouterLink
             :to="{ name: 'blank' }"
             class="font-bold text-4xl underline"
@@ -89,7 +89,7 @@
           </div>
         </div>
       </div>
-      <div class="flex items-start gap-8">
+      <div class="flex items-start gap-8 w-full">
         <div class="w-1/2">
           <img
             src="/FRUITS3-Establish.jpg"
@@ -97,7 +97,7 @@
             class="rounded-lg shadow-lg w-full object-cover"
           />
         </div>
-        <div class="w-full ff-normal">
+        <div id="establish-a-c2w-center" class="w-full ff-normal">
           <RouterLink
             :to="{ name: 'blank' }"
             class="font-bold text-4xl underline"
