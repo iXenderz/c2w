@@ -6,7 +6,9 @@
       label="Back"
     ></Button>
   </RouterLink>
-  <img src="/c2w-center.jpg" class="h-screen w-screen" alt="" />
+  <div class="grid place-items-center h-screen background">
+    <img src="/c2w-center.jpg" class="h-[90vh] object-cover" alt="" />
+  </div>
   <div class="background py-10">
     <div
       id="accordion-flush"

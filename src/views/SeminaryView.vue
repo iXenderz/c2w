@@ -13,13 +13,13 @@
         type="radio"
         name="slider"
         class="sr-only peer/01"
+        checked
       />
       <input
         id="article-02"
         type="radio"
         name="slider"
         class="sr-only peer/02"
-        checked
       />
       <input
         id="article-03"
@@ -116,8 +116,72 @@
       </div>
     </div>
   </section>
-  <dialog ref="imageDialog" @click="handleDialogClick">
-    <img :src="dialogImage" alt="Zoomed Image" style="height: 180%" />
+  <dialog ref="imageDialog" @click="handleDialogClick" class="relative">
+    <div class="absolute top-4 right-4 flex gap-2">
+      <button
+        @click="closeDialog"
+        class="bg-red-700 p-2 rounded-full text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <button
+      @click="prevImage"
+      class="fixed left-8 top-1/2 -translate-y-1/2 bg-red-700 p-2 rounded-full text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <transition :name="slideDirection" mode="out-in">
+      <img
+        :key="dialogImage"
+        :src="dialogImage"
+        alt="Zoomed Image"
+        style="height: 150%"
+      />
+    </transition>
+    <button
+      @click="nextImage"
+      class="fixed right-8 top-1/2 -translate-y-1/2 bg-red-700 p-2 rounded-full text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
   </dialog>
 </template>
 <script>
@@ -125,6 +189,13 @@ export default {
   data() {
     return {
       dialogImage: "/C2W SEMINARY.jpg",
+      images: [
+        "/C2W SEMINARY.jpg",
+        "/C2W SEMINARY Church.jpg",
+        "/C2W SEMINARY Believer.jpg",
+      ],
+      currentImageIndex: 0,
+      slideDirection: "slide-right",
     };
   },
   mounted() {
@@ -154,6 +225,18 @@ export default {
         this.closeDialog();
       }
     },
+    prevImage() {
+      this.slideDirection = "slide-right";
+      this.currentImageIndex =
+        (this.currentImageIndex - 1 + this.images.length) % this.images.length;
+      this.dialogImage = this.images[this.currentImageIndex];
+    },
+    nextImage() {
+      this.slideDirection = "slide-left";
+      this.currentImageIndex =
+        (this.currentImageIndex + 1) % this.images.length;
+      this.dialogImage = this.images[this.currentImageIndex];
+    },
   },
 };
 </script>
@@ -161,5 +244,28 @@ export default {
 /* Optional: Style the dialog element */
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+</style>
+
+<style scoped>
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%);
+}
+.slide-left-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-right-enter-from {
+  transform: translateX(-100%);
+}
+.slide-right-leave-to {
+  transform: translateX(100%);
 }
 </style>
