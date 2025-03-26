@@ -24,11 +24,17 @@
           />
         </div>
         <div id="discipleship-for-true-believers" class="w-full ff-normal">
-          <RouterLink
-            :to="{ name: 'seminary', query: { id: 'believer' } }"
+          <button
             class="font-bold text-4xl underline"
-            >Discipleship for True Believers</RouterLink
+            @click="
+              () =>
+                openModal(
+                  `https://docs.google.com/document/d/13LmLfFp4ugEN2ZXUbNS74hSgXbpWBWcRmXDAUK-MF4I/preview?embedded=true`
+                )
+            "
           >
+            Discipleship for True Believers
+          </button>
           <div class="text-lg mb-2 italic">Luke 14:26-27</div>
           <div class="text-2xl font-semibold text-red-700">
             26 "if anyone comes to me and <br />
@@ -50,11 +56,17 @@
           />
         </div>
         <div id="share-with-the-needy" class="w-full ff-normal">
-          <RouterLink
-            :to="{ name: 'blank' }"
+          <button
             class="font-bold text-4xl underline"
-            >Share with the Needy</RouterLink
+            @click="
+              () =>
+                openModal(
+                  `https://docs.google.com/document/d/18sYT3YZJhE6lAtUB6Os2Yy_mCkmmCM9l/preview?embedded=true`
+                )
+            "
           >
+            Share with the Needy
+          </button>
           <div class="text-lg mb-4 italic">Mark 10:17,21</div>
           <div class="text-4xl mb-4 text-red-700 ff-vibes">
             What must I do to inherit eternal life?
@@ -95,4 +107,50 @@
       </div>
     </div>
   </div>
+  <ReusableModal
+    v-if="showModal"
+    :url="googleDocUrl"
+    @close="showModal = false"
+  />
 </template>
+<script>
+import ReusableModal from "@/components/ReusableModal.vue";
+
+export default {
+  components: {
+    ReusableModal,
+  },
+  data() {
+    return {
+      showModal: false,
+      googleDocUrl: "",
+    };
+  },
+  methods: {
+    openModal(url) {
+      console.log(url);
+      this.showModal = true;
+      this.googleDocUrl = url;
+    },
+  },
+};
+</script>
+<style scoped>
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
