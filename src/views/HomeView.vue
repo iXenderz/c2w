@@ -92,15 +92,4 @@
   </div>
   <Caroucel />
   <FooterBar />
-  <iframe
-    :src="googleDocUrl"
-    width="100%"
-    height="600px"
-    frameborder="0"
-  ></iframe>
 </template>
-
-<script setup>
-const googleDocUrl =
-  "https://docs.google.com/document/d/18sYT3YZJhE6lAtUB6Os2Yy_mCkmmCM9l/preview?embedded=true";
-</script>

@@ -83,8 +83,8 @@
           <div class="text-lg mb-8 italic">Luke 10:2 Matthew 24:45</div>
           <div class="text-4xl text-red-700 ff-caveat">
             You can send two full-time workers <br />
-            to the harvest field to reach <br />
-            the Lord260 families a year with the Gospel <br />
+            into the harvest field to reach <br />
+            260 families a year with the Gospel <br />
             without leaving your home!
           </div>
         </div>
@@ -103,12 +103,15 @@
             class="font-bold text-4xl underline"
             >Establish a C2W Center</RouterLink
           >
-          <div class="text-lg mb-6 italic">Acts 13:47; Matthew 28:19</div>
-          <div class="text-4xl text-red-700 ff-caveat">
+          <div class="text-lg mb-3 italic">Acts 13:47; Matthew 28:19</div>
+          <div class="text-4xl text-red-700 ff-caveat mb-3">
             You can proclaim the Gospel in <br />
             a developing country by establishing <br />
             a Christ to the World Mission Center <br />
             with only your heart and money.
+          </div>
+          <div class="text-red-700 text-xl">
+            <b>Take the church to the world</b>
           </div>
         </div>
       </div>

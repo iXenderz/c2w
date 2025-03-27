@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/vue";
 <template>
   <Analytics />
   <RouterView />
-  <div class="ff-normal fixed bottom-10 right-10 z-50">
+  <div class="ff-normal fixed bottom-40 right-10 z-50">
     <div class="group relative">
       <button
         class="bg-red-700 p-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group-hover:bg-red-50"
