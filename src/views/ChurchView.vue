@@ -24,11 +24,17 @@
           />
         </div>
         <div id="making-disciples" class="w-full ff-normal">
-          <RouterLink
-            :to="{ name: 'seminary', query: { id: 'church' } }"
+          <button
             class="font-bold text-4xl underline"
-            >Making Disciples</RouterLink
+            @click="
+              () =>
+                openModal(
+                  `https://docs.google.com/document/d/13LmLfFp4ugEN2ZXUbNS74hSgXbpWBWcRmXDAUK-MF4I/preview?embedded=true`
+                )
+            "
           >
+            Making Disciples
+          </button>
           <div class="text-lg mb-4 italic">Matthew 28:19</div>
           <div class="text-7xl mb-4 text-red-700 ff-caveat">
             Is your church <br />
@@ -48,11 +54,17 @@
           />
         </div>
         <div id="share-with-the-needy" class="w-full ff-normal">
-          <RouterLink
-            :to="{ name: 'blank' }"
+          <button
             class="font-bold text-4xl underline"
-            >Share with the Needy</RouterLink
+            @click="
+              () =>
+                openModal(
+                  `https://docs.google.com/document/d/18sYT3YZJhE6lAtUB6Os2Yy_mCkmmCM9l/preview?embedded=true`
+                )
+            "
           >
+            Share with the Needy
+          </button>
           <div class="text-lg mb-4 italic">Acts 10:1-4</div>
           <div class="text-2xl font-bold text-red-700 mb-1">
             The Cornelius Offering
@@ -117,8 +129,28 @@
       </div>
     </div>
   </div>
+  <ReusableModal
+    v-if="showModal"
+    :url="googleDocUrl"
+    @close="showModal = false"
+  />
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      showModal: false,
+      googleDocUrl: "",
+    };
+  },
+  methods: {
+    openModal(url) {
+      this.showModal = true;
+      this.googleDocUrl = url;
+    },
+  },
+};
+</script>
 <style scoped>
 .background {
   background: radial-gradient(

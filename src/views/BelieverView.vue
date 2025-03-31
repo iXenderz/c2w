@@ -88,11 +88,17 @@
           />
         </div>
         <div id="send-workers-to-harvest" class="w-full ff-normal">
-          <RouterLink
-            :to="{ name: 'blank' }"
+          <button
             class="font-bold text-4xl underline"
-            >Send Workers to Harvest</RouterLink
+            @click="
+              () =>
+                openModal(
+                  `https://docs.google.com/document/d/1mTqEYu1ml9aXz-7GyuS-iXmuKsjIAZen/preview?embedded=true`
+                )
+            "
           >
+            Send Workers to Harvest
+          </button>
           <div class="text-lg mb-4 italic">Luke 8:3, 10:2 Matthew 24:45</div>
           <div class="text-4xl mb-4 text-red-700 ff-vibes">
             You ever wonder who "sent" Jesus <br />
@@ -114,12 +120,7 @@
   />
 </template>
 <script>
-import ReusableModal from "@/components/ReusableModal.vue";
-
 export default {
-  components: {
-    ReusableModal,
-  },
   data() {
     return {
       showModal: false,
@@ -128,7 +129,6 @@ export default {
   },
   methods: {
     openModal(url) {
-      console.log(url);
       this.showModal = true;
       this.googleDocUrl = url;
     },

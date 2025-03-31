@@ -44,6 +44,10 @@ export default {
     if (iframe && iframe.complete) {
       this.loading = false;
     }
+    document.body.style.overflow = "hidden"; // Disable scrolling on the body
+  },
+  beforeUnmount() {
+    document.body.style.overflow = "auto"; // Re-enable scrolling on unmount
   },
 };
 </script>
