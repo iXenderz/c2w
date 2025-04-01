@@ -1,21 +1,11 @@
 <template>
-  <RouterLink :to="{ name: 'home' }">
-    <Button
-      class="ff-normal px-5 fixed m-4 z-10"
-      severity="contrast"
-      label="Back"
-    ></Button>
-  </RouterLink>
-  <div class="background">
-    <img
-      src="/FRUITS3 CHURCH intro HEADER.jpg"
-      style="width: 100%; height: 100vh"
-      alt=""
-    />
-    <div
-      class="flex flex-col items-center gap-16 container mx-auto py-16 max-w-4xl"
-    >
+  <div
+    class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md flex items-center justify-center z-50"
+    @click.self="$emit('close')"
+  >
+    <div class="card-container">
       <Highlight
+        v-if="targetTag === 'making-disciples'"
         imgSrc="/FRUITS3-Make.jpg"
         tagID="making-disciples"
         title="Making Disciples"
@@ -33,6 +23,7 @@
         <p class="text-4xl ml-14 mt-2 font-bold text-red-700">We can help!</p>
       </Highlight>
       <Highlight
+        v-if="targetTag === 'share-with-the-needy'"
         imgSrc="/FRUITS3-Share.jpg"
         tagID="share-with-the-needy"
         title="Share with the Needy"
@@ -55,6 +46,7 @@
         </p>
       </Highlight>
       <Highlight
+        v-if="targetTag === 'send-workers-to-harvest'"
         imgSrc="/FRUITS3-Send.png"
         tagID="send-workers-to-harvest"
         title="Send Workers to Harvest"
@@ -74,6 +66,7 @@
         </p>
       </Highlight>
       <Highlight
+        v-if="targetTag === 'establish-a-c2w-center'"
         imgSrc="/FRUITS3-Establish.jpg"
         tagID="establish-a-c2w-center"
         title="Establish a C2W Center"
@@ -97,49 +90,48 @@
       </Highlight>
     </div>
   </div>
-  <ReusableModal
-    v-if="showModal"
-    :url="googleDocUrl"
-    @close="showModal = false"
-  />
-  <ChurchModal
-    v-if="showChurchModal"
-    @close="showChurchModal = false"
-    @open="openModal"
-  />
 </template>
 <script>
-import ChurchModal from "@/components/ChurchModal.vue";
-import Highlight from "@/components/Highlight.vue";
-import ReusableModal from "@/components/ReusableModal.vue";
-
 export default {
   data() {
     return {
-      showModal: false,
-      showChurchModal: true,
-      googleDocUrl: "",
+      tags: [
+        "making-disciples",
+        "share-with-the-needy",
+        "send-workers-to-harvest",
+        "establish-a-c2w-center",
+      ],
+      targetTag: "",
     };
+  },
+  mounted() {
+    document.body.style.overflow = "hidden";
+    const hash = this.$route.hash.substring(1);
+    if (this.tags.includes(hash)) {
+      this.targetTag = hash;
+    } else {
+      this.$emit("close");
+    }
+    this.$router.replace({ hash: "" });
+  },
+  beforeUnmount() {
+    document.body.style.overflow = "auto";
   },
   methods: {
     openModal(url) {
-      this.showChurchModal = false;
-      this.showModal = true;
-      this.googleDocUrl = url;
+      this.$emit("open", url);
     },
   },
 };
 </script>
 <style scoped>
-.background {
-  background: radial-gradient(
-    circle at 50% 50%,
-    #e0e7ff,
-    #f3f4f6,
-    #e0e7ff,
-    #f3f4f6
-  );
-  min-height: 100vh;
-  position: relative;
+.card-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1024px;
+  width: 100%;
 }
 </style>

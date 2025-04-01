@@ -11,6 +11,7 @@
     </div>
     <div class="w-11/12 max-w-4xl p-4 relative">
       <iframe
+        class="relative z-20"
         :src="url"
         width="100%"
         frameborder="0"
