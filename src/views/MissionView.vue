@@ -45,7 +45,7 @@
               :to="{ name: 'church', hash: '#send-workers-to-harvest' }"
               class="underline font-bold block"
               style="line-height: 0.6em"
-              >Send Workets to the Harvest
+              >Send Workers to the Harvest
             </RouterLink>
             <span>Luke 10:2</span>
           </div>
