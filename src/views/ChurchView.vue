@@ -109,10 +109,6 @@
   />
 </template>
 <script>
-import ChurchModal from "@/components/ChurchModal.vue";
-import Highlight from "@/components/Highlight.vue";
-import ReusableModal from "@/components/ReusableModal.vue";
-
 export default {
   data() {
     return {
@@ -130,16 +126,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.background {
-  background: radial-gradient(
-    circle at 50% 50%,
-    #e0e7ff,
-    #f3f4f6,
-    #e0e7ff,
-    #f3f4f6
-  );
-  min-height: 100vh;
-  position: relative;
-}
-</style>

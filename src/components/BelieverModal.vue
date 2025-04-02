@@ -1,21 +1,11 @@
 <template>
-  <RouterLink :to="{ name: 'home' }">
-    <Button
-      class="ff-normal px-5 fixed m-4 z-10"
-      severity="contrast"
-      label="Back"
-    ></Button>
-  </RouterLink>
-  <div class="background">
-    <img
-      src="/FRUITS3 BELIEVER intro HEADER.jpg"
-      style="width: 100%; height: 100vh"
-      alt=""
-    />
-    <div
-      class="flex flex-col items-center gap-16 container mx-auto py-16 max-w-4xl"
-    >
+  <div
+    class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md flex items-center justify-center z-50"
+    @click.self="$emit('close')"
+  >
+    <div class="card-container">
       <Highlight
+        v-if="targetTag === 'discipleship-for-true-believers'"
         imgSrc="/FRUITS3-Make.jpg"
         tagID="discipleship-for-true-believers"
         title="Discipleship for True Believers"
@@ -26,7 +16,7 @@
           )
         "
       >
-        <div class="text-2xl font-semibold text-red-700">
+        <p class="text-2xl font-semibold text-red-700">
           26 "if anyone comes to me and <br />
           does not hate father and mother, <br />
           wife and children, brothers and sisters <br />
@@ -34,9 +24,10 @@
           cannot be my disciple. <br />
           27 And whoever does not carry their cross <br />
           and follow me cannot be my disciple."
-        </div>
+        </p>
       </Highlight>
       <Highlight
+        v-if="targetTag === 'share-with-the-needy'"
         imgSrc="/FRUITS3-Share.jpg"
         tagID="share-with-the-needy"
         title="Share with the Needy"
@@ -47,17 +38,18 @@
           )
         "
       >
-        <div class="text-4xl mb-4 text-red-700 ff-vibes">
+        <p class="text-4xl mb-4 text-red-700 ff-vibes">
           What must I do to inherit eternal life?
-        </div>
-        <div class="text-2xl font-semibold text-red-700">
+        </p>
+        <p class="text-2xl font-semibold text-red-700">
           "Go, sell everything you have <br />
           and give to the poor, <br />
           and you will have treasure in heaven. <br />
           Then come, follow me."
-        </div>
+        </p>
       </Highlight>
       <Highlight
+        v-if="targetTag === 'send-workers-to-harvest'"
         imgSrc="/FRUITS3-Send.png"
         tagID="send-workers-to-harvest"
         title="Send Workers to Harvest"
@@ -68,66 +60,63 @@
           )
         "
       >
-        <div class="text-4xl mb-4 text-red-700 ff-vibes">
+        <p class="text-4xl mb-4 text-red-700 ff-vibes">
           You ever wonder who "sent" Jesus <br />
           and His disciples into the Harvest?
-        </div>
-        <div class="text-2xl font-semibold text-red-700">
+        </p>
+        <p class="text-2xl font-semibold text-red-700">
           We have workers waiting to be sent. <br />
           You can be a worker or be a sender. and share equally in the Lord's
           reward.
-        </div>
+        </p>
       </Highlight>
     </div>
   </div>
-  <ReusableModal
-    v-if="showModal"
-    :url="googleDocUrl"
-    @close="showModal = false"
-  />
-  <BelieverModal
-    v-if="showBelieverModal"
-    @close="showBelieverModal = false"
-    @open="openModal"
-  />
 </template>
 <script>
+import Highlight from "../components/Highlight.vue";
 export default {
   components: {
     Highlight,
   },
   data() {
     return {
-      showModal: false,
-      showBelieverModal: true,
-      googleDocUrl: "",
+      tags: [
+        "discipleship-for-true-believers",
+        "share-with-the-needy",
+        "send-workers-to-harvest",
+      ],
+      targetTag: "",
     };
+  },
+  mounted() {
+    document.body.style.overflow = "hidden";
+    const hash = this.$route.hash.substring(1);
+    if (this.tags.includes(hash)) {
+      this.targetTag = hash;
+    } else {
+      this.$emit("close");
+    }
+    this.$router.replace({ hash: "" });
+  },
+  beforeUnmount() {
+    document.body.style.overflow = "auto";
   },
   methods: {
     openModal(url) {
-      this.showBelieverModal = false;
-      this.showModal = true;
-      this.googleDocUrl = url;
+      this.$emit("open", url);
     },
   },
 };
 </script>
 <style scoped>
-.loader {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.card-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1024px;
+  width: 100%;
 }
 </style>
