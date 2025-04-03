@@ -20,6 +20,7 @@
         tagID="discipleship-for-true-believers"
         title="Discipleship for True Believers"
         subtitle="Luke 14:26-27"
+        :quotes="['The theology: MY DISCIPLE']"
         @on-open-modal="
           openModal(
             'https://docs.google.com/document/d/13LmLfFp4ugEN2ZXUbNS74hSgXbpWBWcRmXDAUK-MF4I/preview?embedded=true'
@@ -31,9 +32,9 @@
           does not hate father and mother, <br />
           wife and children, brothers and sisters <br />
           —yes, even their own life—such a person <br />
-          cannot be my disciple. <br />
+          cannot be <b>my disciple</b>. <br />
           27 And whoever does not carry their cross <br />
-          and follow me cannot be my disciple."
+          and follow me cannot be <b>my disciple</b>."
         </div>
       </Highlight>
       <Highlight
@@ -41,6 +42,10 @@
         tagID="share-with-the-needy"
         title="Share with the Needy"
         subtitle="Mark 10:17,21"
+        :quotes="[
+          'The theology: Hallmark of a True Believer',
+          'The theology: Explaining &quot;Go Sell...&quot;',
+        ]"
         @on-open-modal="
           openModal(
             'https://docs.google.com/document/d/18sYT3YZJhE6lAtUB6Os2Yy_mCkmmCM9l/preview?embedded=true'
@@ -62,6 +67,7 @@
         tagID="send-workers-to-harvest"
         title="Send Workers to Harvest"
         subtitle="Luke 8:3, 10:2 Matthew 24:45"
+        :quotes="['The theology: Ministering to Jesus']"
         @on-open-modal="
           openModal(
             'https://docs.google.com/document/d/1mTqEYu1ml9aXz-7GyuS-iXmuKsjIAZen/preview?embedded=true'

@@ -22,7 +22,14 @@
           class="font-bold text-4xl underline"
           >{{ title }}
         </RouterLink>
-        <div class="text-lg italic">{{ subtitle }}</div>
+        <div class="text-lg italic flex gap-3">
+          <span class="whitespace-nowrap">{{ subtitle }}</span>
+          <span v-if="quotes" class="text-xl font-semibold text-cyan-600">
+            <span v-for="(quote, i) in quotes" :key="i" class="inline-block">{{
+              quote
+            }}</span>
+          </span>
+        </div>
       </header>
       <div>
         <slot></slot>
@@ -37,6 +44,7 @@ export default {
     tagID: { type: String, required: true },
     title: { type: String, required: true },
     subtitle: { type: String, required: true },
+    quotes: { type: Array, required: false },
     isLink: { type: Boolean, default: false },
   },
   methods: {
