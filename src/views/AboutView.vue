@@ -7,7 +7,31 @@
     ></Button>
   </RouterLink>
   <div class="grid place-items-center h-screen background">
-    <img src="/c2w-center.jpg" class="h-[90vh] object-cover" alt="" />
+    <div class="h-[90vh] relative">
+      <div class="h-full w-full absolute">
+        <RouterLink
+          class="inline-block h-full w-[22%] absolute cursor-pointer"
+          :to="{ name: 'believer', hash: '#send-workers-to-harvest' }"
+        />
+        <RouterLink
+          class="inline-block h-[52%] w-[69%] absolute bottom-0 cursor-pointer"
+          :to="{ name: 'believer', hash: '#send-workers-to-harvest' }"
+        />
+        <RouterLink
+          class="inline-block h-full w-[28%] absolute right-0 cursor-pointer"
+          :to="{ name: 'home', hash: '#taking-the-church' }"
+        />
+        <RouterLink
+          class="inline-block h-[13%] w-[18%] absolute right-[28%] top-[20%] cursor-pointer"
+          :to="{ name: 'home' }"
+        />
+        <RouterLink
+          class="inline-block h-[13%] w-[17%] absolute left-[22%] top-[20%] cursor-pointer"
+          :to="{ name: 'mission' }"
+        />
+      </div>
+      <img src="/c2w-center.webp" class="h-full object-cover" alt="" />
+    </div>
   </div>
   <div class="background py-10">
     <div

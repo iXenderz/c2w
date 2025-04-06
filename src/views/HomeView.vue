@@ -90,6 +90,6 @@
       </div>
     </div>
   </div>
-  <Caroucel />
+  <Caroucel id="#taking-the-church" />
   <FooterBar />
 </template>
