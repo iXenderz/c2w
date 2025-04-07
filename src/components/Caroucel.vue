@@ -3,6 +3,7 @@
     <p
       class="text-gray-800 md:text-5xl text-3xl font-extrabold md:!leading-[55px] text-center mx-auto mb-2"
       style="max-width: 800px"
+      id="taking-the-church"
     >
       TAKING THE CHURCH TO THE PEOPLE
     </p>

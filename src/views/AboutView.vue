@@ -23,12 +23,16 @@
         />
         <RouterLink
           class="inline-block h-[13%] w-[18%] absolute right-[28%] top-[20%] cursor-pointer"
-          :to="{ name: 'home' }"
+          :to="{ name: 'seminary' }"
         />
         <RouterLink
           class="inline-block h-[13%] w-[17%] absolute left-[22%] top-[20%] cursor-pointer"
           :to="{ name: 'mission' }"
         />
+        <div
+          class="inline-block h-[13%] w-[10%] absolute left-[42%] top-[34%] cursor-pointer"
+          @click="openDialog"
+        ></div>
       </div>
       <img src="/c2w-center.webp" class="h-full object-cover" alt="" />
     </div>
@@ -95,17 +99,35 @@
       </div>
     </div>
   </div>
+  <dialog ref="imageDialog" @click="handleDialogClick" class="relative">
+    <div class="absolute top-4 right-4 flex gap-2">
+      <button
+        @click="closeDialog"
+        class="bg-red-700 p-2 rounded-full text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <img src="/FRUITS3-Make.jpg" style="height: 90%" />
+  </dialog>
 </template>
-<style>
-.background {
-  background: radial-gradient(
-    circle at 50% 50%,
-    #f2f5ff,
-    #f3f4f6,
-    #eff2ff,
-    #f3f4f6
-  );
-  position: relative;
+<style scoped>
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
 }
 </style>
 <script>
@@ -148,6 +170,17 @@ export default {
   methods: {
     toggleAccordion(index) {
       this.activeAccordion = this.activeAccordion === index ? null : index;
+    },
+    openDialog() {
+      this.$refs.imageDialog.showModal();
+    },
+    closeDialog() {
+      this.$refs.imageDialog.close();
+    },
+    handleDialogClick(event) {
+      if (event.target === this.$refs.imageDialog) {
+        this.closeDialog();
+      }
     },
   },
 };
