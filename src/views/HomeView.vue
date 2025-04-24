@@ -1,95 +1,105 @@
 <template>
   <Hero />
+
+  <!-- Container for the responsive section -->
   <div class="container mx-auto pt-12 px-3">
-    <div
-      style="
-        width: 800px;
-        margin: 0 auto;
-        border-radius: 5px;
-        height: 533.17px;
-        background-image: url('GOD gave Mission.jpg');
-        background-size: cover;
-        position: relative;
-      "
-    >
-      <div class="flex items-end h-full">
-        <div
-          class="text-center ff-narrow w-1/2 h-[310px] pe-6 opacity-95 text-lg flex flex-col gap-4"
-        >
-          <div class="text-blue-200">
-            <RouterLink
-              :to="{ name: 'church', hash: '#making-disciples' }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Making Disciples
-            </RouterLink>
-            <span>Matt 28:19-20</span>
-          </div>
-          <div class="text-blue-600">
-            <RouterLink
-              :to="{ name: 'church', hash: '#share-with-the-needy' }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Share With the Needy
-            </RouterLink>
-            <span>Acts 2:44</span>
-          </div>
-          <div class="text-blue-700">
-            <RouterLink
-              :to="{ name: 'church', hash: '#send-workers-to-harvest' }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Send Workers to the Harvest
-            </RouterLink>
-            <span>Luke 10:2</span>
-          </div>
-          <div class="text-blue-800">
-            <RouterLink
-              :to="{ name: 'church', hash: '#establish-a-c2w-center' }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Taking Your Church to the World
-            </RouterLink>
-            <span>Acts 2:44</span>
-          </div>
-        </div>
-        <div
-          class="text-center ff-narrow w-1/2 h-[310px] ps-16 opacity-95 text-lg flex flex-col gap-4"
-        >
-          <div class="text-blue-200">
-            <RouterLink
-              :to="{
-                name: 'believer',
-                hash: '#discipleship-for-true-believers',
-              }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Making Disciples
-            </RouterLink>
-            <span>Matt 28:19-20</span>
-          </div>
-          <div class="text-slate-200">
-            <RouterLink
-              :to="{ name: 'believer', hash: '#share-with-the-needy' }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Give to the Poor
-            </RouterLink>
-            <span>Mark 10:21</span>
-          </div>
-          <div class="text-slate-100">
-            <RouterLink
-              :to="{ name: 'believer', hash: '#send-workers-to-harvest' }"
-              class="underline font-bold block"
-              style="line-height: 0.6em"
-              >Send Workers to the Harvest
-            </RouterLink>
-            <span>Luke 10:2</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Mobile View Component: Show by default, hide on lg screens and up -->
+    <MobileMissionView
+      class="lg:hidden"
+      :church-links="churchLinks"
+      :believer-links="believerLinks"
+      :mobile-bg-url="mobileBackgroundImageUrl"
+    />
+
+    <!-- Desktop View Component: Hide by default, show on lg screens and up -->
+    <DesktopMissionView
+      class="hidden lg:block"
+      :church-links="churchLinks"
+      :believer-links="believerLinks"
+      :desktop-bg-url="desktopBackgroundImageUrl"
+    />
   </div>
+
   <Caroucel id="#taking-the-church" />
   <FooterBar />
 </template>
+
+<script setup>
+import { ref } from "vue";
+// RouterLink might not be needed here anymore if Hero/Footer don't use it directly
+
+// Import your components
+import Hero from "@/components/Hero.vue"; // Adjust path as needed
+import Caroucel from "@/components/Caroucel.vue"; // Adjust path as needed
+import FooterBar from "@/components/FooterBar.vue"; // Adjust path as needed
+import MobileMissionView from "@/components/MobileMissionView.vue"; // Adjust path as needed
+import DesktopMissionView from "@/components/DesktopMissionView.vue"; // Adjust path as needed
+
+// --- Define the Link Data ONCE ---
+const churchLinks = ref([
+  {
+    route: { name: "church", hash: "#making-disciples" },
+    text: "Making Disciples",
+    verse: "Matt 28:19-20",
+    colorDesktop: "text-blue-200",
+    colorMobile: "text-blue-200",
+  },
+  {
+    route: { name: "church", hash: "#share-with-the-needy" },
+    text: "Share With the Needy",
+    verse: "Acts 2:44",
+    colorDesktop: "text-blue-600",
+    colorMobile: "text-blue-200",
+  },
+  {
+    route: { name: "church", hash: "#send-workers-to-harvest" },
+    text: "Send Workers to the Harvest",
+    verse: "Luke 10:2",
+    colorDesktop: "text-blue-700",
+    colorMobile: "text-blue-200",
+  },
+  {
+    route: { name: "church", hash: "#establish-a-c2w-center" },
+    text: "Taking Your Church to the World",
+    verse: "Acts 2:44",
+    colorDesktop: "text-blue-800",
+    colorMobile: "text-blue-200",
+  },
+]);
+
+const believerLinks = ref([
+  {
+    route: { name: "believer", hash: "#discipleship-for-true-believers" },
+    text: "Making Disciples",
+    verse: "Matt 28:19-20",
+    colorDesktop: "text-blue-200",
+    colorMobile: "text-blue-200",
+  },
+  {
+    route: { name: "believer", hash: "#share-with-the-needy" },
+    text: "Give to the Poor",
+    verse: "Mark 10:21",
+    colorDesktop: "text-slate-200",
+    colorMobile: "text-blue-200",
+  },
+  {
+    route: { name: "believer", hash: "#send-workers-to-harvest" },
+    text: "Send Workers to the Harvest",
+    verse: "Luke 10:2",
+    colorDesktop: "text-slate-100",
+    colorMobile: "text-blue-200",
+  },
+]);
+// --- End Link Data ---
+
+// --- Define Background Image URLs ---
+// Ensure these paths are correct relative to your project's 'public' directory
+const mobileBackgroundImageUrl = "'R10171_product.webp'";
+const desktopBackgroundImageUrl = "'GOD gave Mission.jpg'";
+// --- End Background Image URLs ---
+</script>
+
+<style scoped>
+/* Add specific styles for the landing page if needed */
+/* .ff-narrow definition is now moved to DesktopMissionView.vue */
+</style>
