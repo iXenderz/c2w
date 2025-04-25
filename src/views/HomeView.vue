@@ -2,7 +2,7 @@
   <Hero />
 
   <!-- Container for the responsive section -->
-  <div class="container mx-auto pt-12 px-3">
+  <div class="container mx-auto lg:pt-12 lg:px-3">
     <!-- Mobile View Component: Show by default, hide on lg screens and up -->
     <MobileMissionView
       class="lg:hidden"
