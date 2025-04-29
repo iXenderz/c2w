@@ -1,13 +1,6 @@
 <template>
-  <RouterLink :to="{ name: 'home' }">
-    <Button
-      class="ff-normal px-5 fixed m-4"
-      severity="contrast"
-      label="Back"
-    ></Button>
-  </RouterLink>
-  <section class="background grid place-items-center">
-    <div class="mx-auto relative">
+  <div class="background grid place-items-center min-h-screen overflow-y-auto">
+    <div class="mx-auto relative w-full max-w-2xl px-2">
       <input
         id="article-01"
         type="radio"
@@ -115,7 +108,7 @@
         </article>
       </div>
     </div>
-  </section>
+  </div>
   <dialog ref="imageDialog" @click="handleDialogClick" class="relative">
     <div class="absolute top-4 right-4 flex gap-2">
       <button

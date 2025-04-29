@@ -2,6 +2,7 @@
   <div
     class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50"
     @click.self="$emit('close')"
+    style="overflow-y: auto; max-height: 100dvh"
   >
     <div
       v-if="loading"
@@ -9,13 +10,13 @@
     >
       <div class="loader"></div>
     </div>
-    <div class="w-11/12 max-w-4xl p-4 relative">
+    <div class="w-11/12 max-w-4xl p-4 relative responsive-modal">
       <iframe
         class="relative z-20"
         :src="url"
         width="100%"
         frameborder="0"
-        style="height: 95vh"
+        style="height: 95vh; max-height: 90dvh"
         @load="loading = false"
       ></iframe>
     </div>
@@ -68,6 +69,23 @@ export default {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive modal for mobile: allow vertical scroll and max height */
+.responsive-modal {
+  max-height: 90dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 640px) {
+  .responsive-modal {
+    padding: 0.5rem;
+    max-width: 99vw;
+    max-height: 90dvh;
+    min-height: unset;
+    box-sizing: border-box;
   }
 }
 </style>
