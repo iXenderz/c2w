@@ -1,17 +1,19 @@
 <template>
-  <section class="flex items-start gap-8 w-full">
-    <div class="w-1/2">
+  <section
+    class="flex flex-col md:flex-row items-start gap-4 xs:gap-6 md:gap-8 w-full py-8 xs:py-10 md:py-12"
+  >
+    <div class="w-full md:w-1/2 mb-2 md:mb-0">
       <img
         :src="imgSrc"
         alt="_"
-        class="rounded-lg shadow-lg w-full object-cover"
+        class="rounded-lg shadow-lg w-full object-cover max-h-48 xs:max-h-64 md:max-h-none"
       />
     </div>
     <article :id="tagID" class="w-full ff-normal">
-      <header class="mb-4">
+      <header class="mb-2 xs:mb-4">
         <button
           v-if="!isLink"
-          class="font-bold text-4xl underline"
+          class="font-bold text-2xl xs:text-3xl md:text-4xl underline"
           @click.prevent="openModal"
         >
           {{ title }}
@@ -19,12 +21,17 @@
         <RouterLink
           v-else
           :to="{ name: 'blank' }"
-          class="font-bold text-4xl underline"
+          class="font-bold text-2xl xs:text-3xl md:text-4xl underline"
           >{{ title }}
         </RouterLink>
-        <div class="text-lg italic flex gap-3">
+        <div
+          class="text-base xs:text-lg md:text-xl italic flex flex-wrap gap-2 xs:gap-3"
+        >
           <span class="whitespace-nowrap">{{ subtitle }}</span>
-          <span v-if="quotes" class="text-xl font-semibold text-cyan-600">
+          <span
+            v-if="quotes"
+            class="text-lg xs:text-xl md:text-2xl font-semibold text-cyan-600"
+          >
             <span v-for="(quote, i) in quotes" :key="i" class="inline-block">{{
               quote
             }}</span>
