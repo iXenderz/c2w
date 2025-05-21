@@ -20,9 +20,15 @@
         name="slider"
         class="sr-only peer/03"
       />
+      <input
+        id="article-04"
+        type="radio"
+        name="slider"
+        class="sr-only peer/04"
+      />
 
       <div
-        class="absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/01:[&_article]:ring peer-focus-visible/01:[&_article]:ring-indigo-300 peer-checked/01:relative peer-checked/01:z-50 peer-checked/01:translate-x-0 peer-checked/01:scale-100 peer-checked/01:[&>label]:pointer-events-none peer-checked/02:-translate-x-40 peer-checked/02:scale-[83.75%] peer-checked/02:z-40 peer-checked/03:-translate-x-80 peer-checked/03:z-30"
+        class="absolute inset-0 scale-[67.5%] z-10 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/01:[&_article]:ring peer-focus-visible/01:[&_article]:ring-indigo-300 peer-checked/01:relative peer-checked/01:z-50 peer-checked/01:translate-x-0 peer-checked/01:scale-100 peer-checked/01:[&>label]:pointer-events-none peer-checked/02:-translate-x-40 peer-checked/02:scale-[83.75%] peer-checked/02:z-40 peer-checked/03:-translate-x-80 peer-checked/03:z-30 peer-checked/04:-translate-x-[120%] peer-checked/04:z-20"
       >
         <label class="absolute inset-0" for="article-01"
           ><span class="sr-only">...</span></label
@@ -51,7 +57,7 @@
       </div>
 
       <div
-        class="absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/02:[&_article]:ring peer-focus-visible/02:[&_article]:ring-indigo-300 peer-checked/01:translate-x-40 peer-checked/01:scale-[83.75%] peer-checked/01:z-40 peer-checked/02:relative peer-checked/02:z-50 peer-checked/02:translate-x-0 peer-checked/02:scale-100 peer-checked/02:[&>label]:pointer-events-none peer-checked/03:-translate-x-40 peer-checked/03:scale-[83.75%] peer-checked/03:z-40"
+        class="absolute inset-0 scale-[67.5%] z-10 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/02:[&_article]:ring peer-focus-visible/02:[&_article]:ring-indigo-300 peer-checked/01:translate-x-40 peer-checked/01:scale-[83.75%] peer-checked/01:z-40 peer-checked/02:relative peer-checked/02:z-50 peer-checked/02:translate-x-0 peer-checked/02:scale-100 peer-checked/02:[&>label]:pointer-events-none peer-checked/03:-translate-x-40 peer-checked/03:scale-[83.75%] peer-checked/03:z-40 peer-checked/04:-translate-x-80 peer-checked/04:z-30"
       >
         <label class="absolute inset-0" for="article-02"
           ><span class="sr-only">...</span></label
@@ -80,7 +86,7 @@
       </div>
 
       <div
-        class="absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/03:[&_article]:ring peer-focus-visible/03:[&_article]:ring-indigo-300 peer-checked/01:translate-x-80 peer-checked/01:z-30 peer-checked/02:translate-x-40 peer-checked/02:scale-[83.75%] peer-checked/02:z-40 peer-checked/03:relative peer-checked/03:z-50 peer-checked/03:translate-x-0 peer-checked/03:scale-100 peer-checked/03:[&>label]:pointer-events-none"
+        class="absolute inset-0 scale-[67.5%] z-10 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/03:[&_article]:ring peer-focus-visible/03:[&_article]:ring-indigo-300 peer-checked/01:translate-x-80 peer-checked/01:z-30 peer-checked/02:translate-x-40 peer-checked/02:scale-[83.75%] peer-checked/02:z-40 peer-checked/03:relative peer-checked/03:z-50 peer-checked/03:translate-x-0 peer-checked/03:scale-100 peer-checked/03:[&>label]:pointer-events-none peer-checked/04:-translate-x-40 peer-checked/04:scale-[83.75%] peer-checked/04:z-40"
       >
         <label class="absolute inset-0" for="article-03"
           ><span class="sr-only">...</span></label
@@ -105,6 +111,55 @@
             </svg>
           </Button>
           <img src="/C2W SEMINARY Believer.jpg" alt="" style="height: 95vh" />
+        </article>
+      </div>
+
+      <div
+        class="absolute ff-normal inset-0 scale-[67.5%] z-10 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] peer-focus-visible/04:[&_article]:ring peer-focus-visible/04:[&_article]:ring-indigo-300 peer-checked/01:translate-x-[120%] peer-checked/01:z-20 peer-checked/02:translate-x-80 peer-checked/02:z-30 peer-checked/03:translate-x-40 peer-checked/03:scale-[83.75%] peer-checked/03:z-40 peer-checked/04:relative peer-checked/04:z-50 peer-checked/04:translate-x-0 peer-checked/04:scale-100 peer-checked/04:[&>label]:pointer-events-none"
+      >
+        <label class="absolute inset-0" for="article-04"
+          ><span class="sr-only">Discipleship for Rich Believers</span></label
+        >
+        <article
+          class="bg-white rounded-lg shadow-2xl flex items-center justify-center min-h-[60vh] p-0"
+          style="height: 95vh"
+        >
+          <div
+            class="border border-gray-400 rounded-lg p-6 w-full h-full flex flex-col justify-center items-center text-blue-900 bg-white/95"
+            style="height: 95vh"
+          >
+            <div class="text-xl md:text-2xl font-semibold text-center mb-2">
+              <span class="italic">DISCIPLESHIP FOR</span>
+              <span class="font-bold italic text-green-700">
+                RICH BELIEVERS</span
+              >
+            </div>
+            <div
+              class="text-base md:text-lg text-blue-800 leading-relaxed mb-2 text-center"
+            >
+              Why not take a
+              <span class="font-bold">DISCIPLESHIP VACATION</span> in the
+              beautiful Philippines for a donation to Christ to the World. Be
+              discipled one-on-one by me for whatever time you can give me. In
+              turn, go back to serve your home church and disciple others. Or
+              come as a group and learn as a group. It will be fun, spiritual,
+              and life-changing. At the same time help support
+              <span class="font-extrabold text-blue-900"
+                >Christ to the World</span
+              >
+              with your donation. Your life will never be the same. Vacation may
+              be a misnomer; only serious believers need apply and be prepared
+              for study and hard work and fun!
+            </div>
+            <div class="mt-4 text-blue-900 text-base md:text-lg text-center">
+              If interested, for more details, write to me at
+              <a
+                href="mailto:williamleong430@gmail.com"
+                class="underline text-blue-700"
+                >williamleong430@gmail.com</a
+              >
+            </div>
+          </div>
         </article>
       </div>
     </div>
