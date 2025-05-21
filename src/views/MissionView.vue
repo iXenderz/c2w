@@ -1,4 +1,6 @@
 <template>
+  <!-- Fundraising Section -->
+
   <RouterLink :to="{ name: 'home' }">
     <Button
       class="ff-normal px-5 fixed m-4 z-10"
@@ -6,7 +8,7 @@
       label="Back"
     ></Button>
   </RouterLink>
-  <div class="grid place-items-center h-screen background">
+  <div class="grid place-items-center min-h-full background py-12">
     <div
       class="rounded-md shadow-lg"
       style="
@@ -92,6 +94,43 @@
             </RouterLink>
             <span>Luke 10:2</span>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-center my-10 ff-normal">
+      <div
+        class="text-3xl md:text-4xl font-extrabold text-blue-900 tracking-wide mb-2"
+      >
+        WANTED:
+        <span class="font-fancy text-green-700 font-bold"
+          >RICH BELIEVERS <span class="font-thin">to</span> SEND WORKERS</span
+        >
+        <span class="text-green-800 font-thin mx-2">into the</span>
+        <span class="font-fancy text-green-700 font-bold">HARVEST FIELD</span>
+      </div>
+      <div class="text-center mt-2 mb-4">
+        <div class="text-red-600 italic text-lg md:text-xl font-semibold">
+          “The harvest is plentiful, but the workers are few.<br />
+          Ask the Lord of the harvest, therefore, to send out workers into his
+          harvest field.”
+        </div>
+        <div class="text-gray-700 font-medium mt-1 text-base md:text-lg">
+          Matthew 9:35-38
+        </div>
+      </div>
+      <div
+        class="bg-white/90 border border-gray-300 rounded-lg shadow-lg px-8 py-6 max-w-2xl text-center"
+      >
+        <div class="text-blue-900 font-extrabold text-xl mb-1">
+          Christ to the World
+          <span class="font-bold mx-2">FUND RAISING GOAL:</span>
+          <span class="text-green-600 text-2xl font-extrabold">$46,000</span>
+        </div>
+        <div class="text-gray-800 mt-2 text-base md:text-lg">
+          For a <span class="font-bold">ONE YEAR</span> budget for sending 3
+          teams of pastors-disciples<br />
+          to reach the equivalence of 3 churches totaling 60 families of about
+          120 to 300 souls.
         </div>
       </div>
     </div>
