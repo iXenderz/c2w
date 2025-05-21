@@ -1,7 +1,7 @@
 <template>
   <RouterLink :to="{ name: 'home' }">
     <Button
-      class="ff-normal fixed m-2 z-10 top-2 left-2 px-3 py-1 text-sm md:top-4 md:left-4 md:px-5 md:py-2 md:text-lg text-base"
+      class="ff-normal fixed m-2 z-10 top-2 left-2 px-3 py-1 md:top-4 md:left-4 md:px-5 md:py-2 md:text-lg text-base"
       severity="contrast"
       label="Back"
     ></Button>
